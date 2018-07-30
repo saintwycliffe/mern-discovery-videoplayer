@@ -22,9 +22,8 @@ export default class Vid extends Component {
   playPause = () => {
     this.setState({ playing: !this.state.playing })
   }
-  onclicky = () => {
-    console.log('thesting this :)')
-    this.onPause();
+  setVolume = e => {
+    this.setState({ volume: parseFloat(e.target.value) })
   }
   ref = player => {
     this.player = player
@@ -48,6 +47,12 @@ export default class Vid extends Component {
           onPause={this.onPause}
         />
         <h1 onClick={this.playPause}>{this.state.playing ? 'Pause' : 'Play'}</h1>
+        <tr>
+          <th>Volume</th>
+          <td>
+            <input type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume} />
+          </td>
+        </tr>
         <button onClick={this.playPause}>{playing ? 'Pause' : 'Play'}</button>
       </div>
     )
