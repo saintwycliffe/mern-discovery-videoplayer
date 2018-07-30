@@ -8,6 +8,7 @@
     "react-dom": "^16.4.1",
     "react-player": "^1.6.4",
     "react-scripts": "1.1.4",
+    "screenfull": "^3.3.2",
     "semantic-ui-react": "^0.81.3",
     "victory": "^0.27.2"
   },
