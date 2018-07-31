@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
+import Duration from './Duration'
 
 export default class Vid extends Component {
   constructor(props){
@@ -13,11 +14,11 @@ export default class Vid extends Component {
   }
 
   onPlay = () => {
-    console.log('onPlay')
+    // console.log('onPlay')
     this.setState({ playing: true })
   }
   onPause = () => {
-    console.log('onPause')
+    // console.log('onPause')
     this.setState({ playing: false })
   }
   playPause = () => {
@@ -37,8 +38,15 @@ export default class Vid extends Component {
     this.player.seekTo(parseFloat(e.target.value))
   }
   onDuration = (duration) => {
-    console.log('onDuration', duration)
+    // console.log('onDuration', duration)
     this.setState({ duration })
+  }
+  onProgress = state => {
+    console.log('onProgress', state)
+    // We only want to update time slider if we are not currently seeking
+    if (!this.state.seeking) {
+      this.setState(state)
+    }
   }
   ref = player => {
     this.player = player
@@ -62,6 +70,7 @@ export default class Vid extends Component {
           onPause={this.onPause}
           onSeek={e => console.log('onSeek', e)}
           onDuration={this.onDuration}
+          onProgress={this.onProgress}
         />
         <h1 onClick={this.playPause}>{this.state.playing ? 'Pause' : 'Play'}</h1>
         <tr>
@@ -70,17 +79,21 @@ export default class Vid extends Component {
             <input type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume} />
           </td>
         </tr>
+        <input
+          className="range-slider"
+          type='range' min={0} max={1} step='any'
+          value={played}
+          onMouseDown={this.onSeekMouseDown}
+          onChange={this.onSeekChange}
+          onMouseUp={this.onSeekMouseUp}
+        />
         <tr>
-          <th>Seek</th>
-          <td>
-            <input
-              type='range' min={0} max={1} step='any'
-              value={played}
-              onMouseDown={this.onSeekMouseDown}
-              onChange={this.onSeekChange}
-              onMouseUp={this.onSeekMouseUp}
-            />
-          </td>
+          <th>elapsed</th>
+          <td><Duration seconds={duration * played} /></td>
+        </tr>
+        <tr>
+          <th>remaining</th>
+          <td><Duration seconds={duration * (1 - played)} /></td>
         </tr>
       </div>
     )
