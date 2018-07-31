@@ -7,7 +7,8 @@ export default class Vid extends Component {
     this.state = {
       playing: true,
       played: 0,
-      volume: 0.8
+      volume: 0.8,
+      duration: 0
     }
   }
 
@@ -25,14 +26,28 @@ export default class Vid extends Component {
   setVolume = e => {
     this.setState({ volume: parseFloat(e.target.value) })
   }
+  onSeekMouseDown = e => {
+    this.setState({ seeking: true })
+  }
+  onSeekChange = e => {
+    this.setState({ played: parseFloat(e.target.value) })
+  }
+  onSeekMouseUp = e => {
+    this.setState({ seeking: false })
+    this.player.seekTo(parseFloat(e.target.value))
+  }
+  onDuration = (duration) => {
+    console.log('onDuration', duration)
+    this.setState({ duration })
+  }
   ref = player => {
     this.player = player
   }
 
   render () {
-    const { playing, volume, played } = this.state
+    const { playing, volume, played, duration } = this.state
     const SEPARATOR = ' · '
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className='player-wrapper'>
         <ReactPlayer
@@ -45,6 +60,8 @@ export default class Vid extends Component {
           height='100vh'
           onPlay={this.onPlay}
           onPause={this.onPause}
+          onSeek={e => console.log('onSeek', e)}
+          onDuration={this.onDuration}
         />
         <h1 onClick={this.playPause}>{this.state.playing ? 'Pause' : 'Play'}</h1>
         <tr>
@@ -53,7 +70,18 @@ export default class Vid extends Component {
             <input type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume} />
           </td>
         </tr>
-        <button onClick={this.playPause}>{playing ? 'Pause' : 'Play'}</button>
+        <tr>
+          <th>Seek</th>
+          <td>
+            <input
+              type='range' min={0} max={1} step='any'
+              value={played}
+              onMouseDown={this.onSeekMouseDown}
+              onChange={this.onSeekChange}
+              onMouseUp={this.onSeekMouseUp}
+            />
+          </td>
+        </tr>
       </div>
     )
   }
