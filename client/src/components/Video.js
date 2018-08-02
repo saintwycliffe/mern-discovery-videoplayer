@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
+import { Icon } from 'semantic-ui-react'
 import Duration from './Duration'
+import Transitions from './Transition'
 
 export default class Vid extends Component {
   constructor(props){
@@ -24,8 +26,20 @@ export default class Vid extends Component {
   playPause = () => {
     this.setState({ playing: !this.state.playing })
   }
-  setVolume = e => {
-    this.setState({ volume: parseFloat(e.target.value) })
+  // setVolume = e => {
+  //   this.setState({ volume: parseFloat(e.target.value) })
+  // }
+  volumeDown = () => {
+    if (this.state.volume > 0.3){
+      let newVol = this.state.volume - 0.2;
+      this.setState({ volume: newVol })
+    }
+  }
+  volumeUp = () => {
+    if (this.state.volume < 1){
+      let newVol = this.state.volume + 0.2;
+      this.setState({ volume: newVol })
+    }
   }
   onSeekMouseDown = e => {
     this.setState({ seeking: true })
@@ -72,13 +86,13 @@ export default class Vid extends Component {
           onDuration={this.onDuration}
           onProgress={this.onProgress}
         />
-        <h1 onClick={this.playPause}>{this.state.playing ? 'Pause' : 'Play'}</h1>
-        <tr>
-          <th>Volume</th>
-          <td>
-            <input type='range' min={0} max={1} step='any' value={volume} onChange={this.setVolume} />
-          </td>
-        </tr>
+        {/*<h1 onClick={this.playPause}>{this.state.playing ? 'Pause' : 'Play'}</h1>*/}
+        <span className="volume-controllers">
+          <Transitions cname="volume-down" name="volume down" onClick={this.volumeDown}/>
+          <Transitions cname="volume-up" name="volume up" onClick={this.volumeUp}/>
+        </span>
+        <span>
+        <Duration className="time-passed" seconds={duration * played} />
         <input
           className="range-slider"
           type='range' min={0} max={1} step='any'
@@ -87,6 +101,8 @@ export default class Vid extends Component {
           onChange={this.onSeekChange}
           onMouseUp={this.onSeekMouseUp}
         />
+        <Duration className="time-remaining" seconds={duration * (1 - played)} />
+        </span>
         <tr>
           <th>elapsed</th>
           <td><Duration seconds={duration * played} /></td>
