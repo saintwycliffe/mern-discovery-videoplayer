@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
-import { Icon } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react'
 import Duration from './Duration'
 import Transitions from './Transition'
 
@@ -56,7 +56,7 @@ export default class Vid extends Component {
     this.setState({ duration })
   }
   onProgress = state => {
-    console.log('onProgress', state)
+    // console.log('onProgress', state)
     // We only want to update time slider if we are not currently seeking
     if (!this.state.seeking) {
       this.setState(state)
@@ -69,7 +69,6 @@ export default class Vid extends Component {
   render () {
     const { playing, volume, played, duration } = this.state
     const SEPARATOR = ' · '
-    // console.log(this.state);
     return (
       <div className='player-wrapper'>
         <ReactPlayer
@@ -87,6 +86,10 @@ export default class Vid extends Component {
           onProgress={this.onProgress}
         />
         {/*<h1 onClick={this.playPause}>{this.state.playing ? 'Pause' : 'Play'}</h1>*/}
+        <Button icon className='exit-button' color='rgba(111,111,111)'>
+          <Icon name='redo' color='white' />
+            &nbsp; Go Back
+        </Button>
         <span className="volume-controllers">
           <Transitions cname="volume-down" name="volume down" onClick={this.volumeDown}/>
           <Transitions cname="volume-up" name="volume up" onClick={this.volumeUp}/>
