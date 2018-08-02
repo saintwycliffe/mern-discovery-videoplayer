@@ -125,7 +125,7 @@ h1 {
 
 .range-slider:focus {
     outline: none;
-    box-shadow: 0px 0px 8px #82CFD0;
+    /* box-shadow: 0px 0px 20px #82CFD0; */
 }
 /* Slider End */
 /* Time Stamps */
@@ -165,17 +165,17 @@ h1 {
   padding-right: 15px;
 }
 
-.shadowed {
-  text-shadow: 0px 0px 10px #82CFD0;
-}
-
 /* Exit Button */
 
 .exit-button {
+  font-family: "Gotham SSm" !important;
+  font-weight: 250 !important;
   position: absolute;
   top: 10%;
   left: 15%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  color: white !important;
+  background-color: rgba(111,111,111) !important;
 }

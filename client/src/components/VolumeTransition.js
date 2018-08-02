@@ -26,12 +26,12 @@ export default class Transitions extends Component {
   }
   shadowed = () => {
     if(this.state.shadowed){
-      return {textShadow: '0px 0px 10px #82CFD0',}
+      return {textShadow: '0px 0px 50px #82CFD0',}
     }
   }
 
   render() {
-    const { animation, duration, visible } = this.state;
+    const { visible } = this.state;
     let shadowy = this.shadowed();
 
     return (
@@ -40,7 +40,7 @@ export default class Transitions extends Component {
           className={this.props.cname}
           name={this.props.name}
           style={shadowy}
-          size="huge"
+          size="massive"
           onClick={this.clicked}
         />
       </Transition>
