@@ -18,6 +18,7 @@ export default class GoBack extends Component {
       shadowed: !this.state.shadowed
     })
     setTimeout(() => {this.setState({ shadowed: !this.state.shadowed })}, 200);
+    setTimeout(() => {this.props.onClick()}, 250);   
   }
   shadowed = () => {
     if(this.state.shadowed){

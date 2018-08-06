@@ -56,3 +56,6 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Mp4 file
+client/src/components/AGM.mp4

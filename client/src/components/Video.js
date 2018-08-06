@@ -26,7 +26,7 @@ componentDidUpdate() {
       scoped.turnOnControls();
     }
   }
-  this.rangeUpdate(); 
+  this.rangeUpdate();
 }
 
 turnOnControls = () => { this.setState({ control: !this.state.control }) }
@@ -68,7 +68,6 @@ onProgress = state => {
   if (!this.state.seeking) {
     this.setState(state)
   }
-  this.rangeUpdate();
 }
 ref = player => { this.player = player }
 
@@ -78,7 +77,7 @@ render () {
     if (this.state.control) {
       controls = (
         <div className="the-controls">
-          <GoBack />
+          <GoBack onClick={this.props.onClick} />
           <span className="volume-controllers">
             <Transitions cname="volume-down" name="volume down" onClick={this.volumeDown}/>
             <Transitions cname="volume-up" name="volume up" onClick={this.volumeUp}/>
