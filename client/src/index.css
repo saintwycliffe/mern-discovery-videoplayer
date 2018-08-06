@@ -23,6 +23,10 @@ h1, h2, h3, p {
   color: black !important;
 }
 
+h1 {
+  font-size: 5rem !important; 
+}
+
 .player-wrapper {
   position: absolute;
   top: 0;
@@ -60,13 +64,14 @@ h1, h2, h3, p {
 }
 
 .tests {
-  display: none;
+  /* display: none; */
   /* width: 500px;
   height: 500px;
   margin: auto; */
   /* background-color: rgba(0,0,0,.8); */
   /* display: inline-block;
     position: relative; */
+  background: url(./components/snapshot.png);
   position: absolute;
   top: 0;
   left: 0;
@@ -74,7 +79,7 @@ h1, h2, h3, p {
   height: 100%;
 }
 
-.tests > p {
+.tests > .center {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -192,4 +197,31 @@ h1 {
   transform: translate(-50%, -50%);
   color: white !important;
   background-color: rgba(111,111,111) !important;
+}
+
+/* Language Button */
+.language-button {
+  font-family: "Gotham SSm" !important;
+  font-weight: 250 !important;
+  color: white !important;
+  background-color: #E04E39 !important;
+}
+
+.language-button:hover {
+  background-color: #c1301b !important;
+}
+
+.language-button:active {
+  opacity: 0.6;
+  transform: translateY(4px);
+}
+
+/* Home Text  */
+.center h1, h2 {
+  color: white !important;
+}
+
+.circle {
+  color: #82CFD0 !important;
+  background: radial-gradient(white 50%, rgba(0, 0, 0, 0) 45%) !important;
 }

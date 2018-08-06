@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 import './App.css';
 import Dimmerr from './components/Dimmer';
 import Vid from './components/Video';
+import Home from './components/Home';
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      mountVid: true
+      mountVid: false
     }
   }
 
   toggleMountVid = () => {
-    this.setState({ mountVid: !this.state.mountVid })
+    setTimeout(() => {this.setState({ mountVid: !this.state.mountVid })}, 250)
   }
 
   render() {
@@ -20,16 +21,11 @@ class App extends Component {
     if(this.state.mountVid) { videoPlay = (
       <Vid onClick={this.toggleMountVid} />
     )}
-    console.log(this.state);
     return (
       <div className="App">
+        <Home onClick={this.toggleMountVid} />
         {videoPlay}
-        <div className="tests">
-          <p>In Testing Mode</p>
-        </div>
-        <div className="qna-container">
-          <Dimmerr />
-        </div>
+        <Dimmerr />
       </div>
     );
   }
