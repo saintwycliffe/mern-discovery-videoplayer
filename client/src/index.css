@@ -91,6 +91,11 @@ h1 {
   color: #FFC600 !important;
 }
 
+/* Controls */
+.the-controls {
+  transition: all .1s ease-in-out 0s;
+}
+
  /* Slider  */
  .range-slider {
     -webkit-appearance: none;
@@ -102,6 +107,11 @@ h1 {
     transform: translate(-50%, -50%);
     width: 60vw;
     border-radius: 5px;
+    transition: background 450ms ease-in;
+}
+
+#myinput {
+  /* background: linear-gradient(to right, #82CFD0 0%, #82CFD0 50%, #fff 50%, #fff 100%) !important; */
 }
 
 .range-slider::-webkit-slider-runnable-track {
@@ -127,6 +137,10 @@ h1 {
     outline: none;
     /* box-shadow: 0px 0px 20px #82CFD0; */
 }
+/* ::-webkit-progress-value {
+  background-color: orange !important;
+} */
+
 /* Slider End */
 /* Time Stamps */
 .time-passed {

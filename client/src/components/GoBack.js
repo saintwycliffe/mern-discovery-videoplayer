@@ -24,12 +24,14 @@ export default class GoBack extends Component {
       return {
         boxShadow: '0px 0px 50px #82CFD0',
         padding: 'none',
+        // transition: 'all .1s ease-in-out 0s',
+        fontSize: '160%',
       }
     }
   }
   shadowed2 = () => {
     if(this.state.shadowed){
-      return { transform: 'scale(.7)', }
+      return { transform: 'scale(.9)', }
     }
   }
 
