@@ -24,7 +24,7 @@ h1, h2, h3, p {
 }
 
 h1 {
-  font-size: 5rem !important; 
+  font-size: 5rem !important;
 }
 
 .player-wrapper {
@@ -204,7 +204,7 @@ h1 {
   font-family: "Gotham SSm" !important;
   font-weight: 250 !important;
   color: white !important;
-  background-color: #E04E39 !important;
+  background-color: #E64C38 !important;
 }
 
 .language-button:hover {
@@ -213,7 +213,8 @@ h1 {
 
 .language-button:active {
   opacity: 0.6;
-  transform: translateY(4px);
+  /* transform: translateY(4px); */
+  transform: scale(.9);
 }
 
 /* Home Text  */
@@ -221,7 +222,23 @@ h1 {
   color: white !important;
 }
 
+.home-title {
+  margin-bottom: 20%;
+}
+
+.home-subtitle {
+  margin-bottom: 5%;
+}
+
 .circle {
   color: #82CFD0 !important;
   background: radial-gradient(white 50%, rgba(0, 0, 0, 0) 45%) !important;
+}
+
+i.icon.play.circle:before {
+    text-shadow: 0px 0px 180px white !important;
+}
+
+i.icon.play.circle:active:before {
+    text-shadow: 0px 0px 180px white, 0px 0px 180px white, 0px 0px 180px white !important;
 }

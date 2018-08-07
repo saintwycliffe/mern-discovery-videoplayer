@@ -26,21 +26,21 @@ export default class Home extends Component {
     return(
       <div className="tests">
         <div className="center">
-          <h1>Title of Video</h1>
+          <h1 className="home-title">Title of Video</h1>
           <Transition visible={visible} animation='pulse' duration={200}>
             <Icon
-              className="play circle icon"
+              className="play circle icon play-circle"
               size="massive"
               onClick={this.clicked}
             />
           </Transition>
-          <h2>Choose another language:</h2>
           <div className="language-buttons" style={languageButtons} >
+            <h2 className="home-subtitle">Choose another language:</h2>
             <Button
               className="language-button"
               url=""
               size="massive"
-              content="Espanol"
+              content={'español'.toUpperCase()}
             />
           </div>
         </div>

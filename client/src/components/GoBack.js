@@ -18,15 +18,14 @@ export default class GoBack extends Component {
       shadowed: !this.state.shadowed
     })
     setTimeout(() => {this.setState({ shadowed: !this.state.shadowed })}, 200);
-    setTimeout(() => {this.props.onClick()}, 250);   
+    setTimeout(() => {this.props.onClick()}, 250);
   }
   shadowed = () => {
     if(this.state.shadowed){
       return {
         boxShadow: '0px 0px 50px #82CFD0',
         padding: 'none',
-        // transition: 'all .1s ease-in-out 0s',
-        fontSize: '160%',
+        fontSize: '150%',
       }
     }
   }

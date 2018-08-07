@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
+import Idle from 'react-idle'
 import Duration from './Duration'
 import Transitions from './VolumeTransition'
 import GoBack from './GoBack'
@@ -95,6 +96,17 @@ render () {
           />
           <Duration className="time-remaining" seconds={duration * (1 - played)} />
           </span>
+          <Idle
+            timeout={5000}
+            render={({ idle }) =>
+              <h1>
+                {idle
+                  ? this.turnOnControls()
+                  : null
+                }
+              </h1>
+            }
+          />
         </div>
       )
     }
@@ -111,12 +123,24 @@ render () {
           height=''
           onPlay={this.onPlay}
           onPause={this.onPause}
-          onSeek={e => console.log('onSeek', e)}
           onDuration={this.onDuration}
           onProgress={this.onProgress}
         />
         {/*<h1 onClick={this.playPause}>{this.state.playing ? 'Pause' : 'Play'}</h1>*/}
         {controls}
+        { this.state.playing === false &&
+          <Idle
+            timeout={100}
+            render={({ idle }) =>
+              <h1>
+                {idle
+                  ? this.props.onClick()
+                  : null
+                }
+              </h1>
+            }
+          />
+        }
       </div>
     )
   }
