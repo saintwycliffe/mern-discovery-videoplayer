@@ -34,6 +34,7 @@ export default class Home extends Component {
               onClick={this.clicked}
             />
           </Transition>
+          {/*
           <div className="language-buttons" style={languageButtons} >
             <h2 className="home-subtitle">Choose another language:</h2>
             <Button
@@ -43,6 +44,7 @@ export default class Home extends Component {
               content={'español'.toUpperCase()}
             />
           </div>
+          */}
         </div>
       </div>
     )

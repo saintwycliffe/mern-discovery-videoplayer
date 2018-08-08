@@ -27,6 +27,10 @@ h1 {
   font-size: 5rem !important;
 }
 
+i.massive.icon, i.massive.icons {
+  font-size: 11em !important;
+}
+
 .player-wrapper {
   position: absolute;
   top: 0;
@@ -96,9 +100,15 @@ h1 {
   color: #FFC600 !important;
 }
 
+/* Animation */
+@keyframes fademein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 /* Controls */
 .the-controls {
-  transition: all .1s ease-in-out 0s;
+  animation: fademein .5s 1; 
 }
 
  /* Slider  */
@@ -151,15 +161,17 @@ h1 {
 .time-passed {
   position: absolute;
   bottom: 10%;
-  left: 12%;
+  left: 10%;
   color: white;
+  font-size: 3em;
 }
 
 .time-remaining {
   position: absolute;
   bottom: 10%;
-  right: 12%;
+  right: 10%;
   color: white;
+  font-size: 3em;
 }
 /* Time Stamps End */
 

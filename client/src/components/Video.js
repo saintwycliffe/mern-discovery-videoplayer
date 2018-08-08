@@ -97,7 +97,7 @@ render () {
           <Duration className="time-remaining" seconds={duration * (1 - played)} />
           </span>
           <Idle
-            timeout={2000}
+            timeout={3000}
             render={({ idle }) =>
               <h1>
                 {idle
