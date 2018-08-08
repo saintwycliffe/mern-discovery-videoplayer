@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Idle from 'react-idle';
 import './App.css';
 import Dimmerr from './components/Dimmer';
 import Vid from './components/Video';
@@ -8,12 +9,16 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      mountVid: false
+      mountVid: false,
+      dimReset: false
     }
   }
 
   toggleMountVid = () => {
-    setTimeout(() => {this.setState({ mountVid: !this.state.mountVid })}, 250)
+    setTimeout(() => {this.setState({
+      mountVid: !this.state.mountVid,
+      dimReset: !this.state.dimReset
+    })}, 250)
   }
 
   render() {
@@ -25,7 +30,19 @@ class App extends Component {
       <div className="App">
         <Home onClick={this.toggleMountVid} />
         {videoPlay}
-        <Dimmerr />
+        { this.state.dimReset === false &&
+          <Idle
+            timeout={30000}
+            render={({ idle }) =>
+              <div>
+                {idle
+                  ? <Dimmerr />
+                  : null
+                }
+              </div>
+            }
+          />
+        }
       </div>
     );
   }
