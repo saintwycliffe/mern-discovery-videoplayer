@@ -25,7 +25,7 @@ export default class GoBack extends Component {
       return {
         boxShadow: '0px 0px 50px #82CFD0',
         padding: 'none',
-        fontSize: '150%',
+        fontSize: '160%',
       }
     }
   }

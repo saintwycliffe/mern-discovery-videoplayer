@@ -24,7 +24,6 @@ componentDidUpdate() {
   vidOverlay.style.width = '';
   if (vidOverlay) { vidOverlay.onclick = () => this.toggleControls() }
   this.rangeUpdate();
-  if((this.state.played > .99) && this.state.control){ this.fadeControlsOut() }
 }
 triggerUnMount = () => {
   this.setState({ playing: !this.state.playing })
@@ -113,7 +112,7 @@ render () {
           <Duration className="time-remaining" seconds={duration * (1 - played)} />
           </span>
           <Idle
-            timeout={2000} render= {
+            timeout={3000} render= {
               ({ idle }) => <div> { idle ? this.toggleControls() : null } </div>
             }
           />

@@ -51,6 +51,6 @@ export default class Home extends Component {
   }
 }
 
-const languageButtons = {
-  marginTop: '30%',
-}
+// const languageButtons = {
+//   marginTop: '30%',
+// }
