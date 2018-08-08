@@ -6,6 +6,7 @@ import Transitions from './VolumeTransition'
 import GoBack from './GoBack'
 import videoUrl from './AGM.mp4'
 
+
 export default class Vid extends Component {
   constructor(props){
     super(props);
@@ -19,18 +20,28 @@ export default class Vid extends Component {
   }
 
 componentDidUpdate() {
-  document.querySelector('video').style.width = '';
   let vidOverlay = document.querySelector('video');
-  let scoped = this;
-  if (vidOverlay) {
-  vidOverlay.onclick = function() {
-      scoped.turnOnControls();
-    }
-  }
+  vidOverlay.style.width = '';
+  if (vidOverlay) { vidOverlay.onclick = () => this.toggleControls() }
   this.rangeUpdate();
+  if((this.state.played > .99) && this.state.control){ this.fadeControlsOut() }
 }
-
-turnOnControls = () => { this.setState({ control: !this.state.control }) }
+triggerUnMount = () => {
+  this.setState({ playing: !this.state.playing })
+  this.props.onClick()
+}
+fadeControlsOut = () => {
+  let fadeControlOut = document.querySelector('.the-controls');
+  fadeControlOut.style.animation = 'fademeout 1.1s 1';
+}
+toggleControls = () => {
+  if(this.state.control){
+    this.fadeControlsOut();
+    setTimeout(() => {this.setState({ control: false })}, 1000)
+  } else {
+    this.setState({ control: true })
+  }
+}
 onPlay = () => { this.setState({ playing: true }) }
 onPause = () => { this.setState({ playing: false }) }
 playPause = () => { this.setState({ playing: !this.state.playing }) }
@@ -61,7 +72,12 @@ onSeekMouseUp = e => {
 rangeUpdate = () => {
   if (document.getElementById("myinput")) {
     let playState = this.state.played;
-    document.getElementById("myinput").style.background = 'linear-gradient(to right, #82CFD0 0%, #82CFD0 '+playState*100 +'%, white ' + playState*100 + '%, white 100%)'
+    document.getElementById("myinput").style.background =
+      'linear-gradient(to right, #82CFD0 0%, #82CFD0 '
+      +playState*100
+      +'%, white '
+      + playState*100
+      + '%, white 100%)'
   }
 }
 onDuration = (duration) => { this.setState({ duration }) }
@@ -78,7 +94,7 @@ render () {
     if (this.state.control) {
       controls = (
         <div className="the-controls">
-          <GoBack onClick={this.props.onClick} />
+          <GoBack onClick={this.triggerUnMount} />
           <span className="volume-controllers">
             <Transitions cname="volume-down" name="volume down" onClick={this.volumeDown}/>
             <Transitions cname="volume-up" name="volume up" onClick={this.volumeUp}/>
@@ -97,14 +113,8 @@ render () {
           <Duration className="time-remaining" seconds={duration * (1 - played)} />
           </span>
           <Idle
-            timeout={3000}
-            render={({ idle }) =>
-              <h1>
-                {idle
-                  ? this.turnOnControls()
-                  : null
-                }
-              </h1>
+            timeout={2000} render= {
+              ({ idle }) => <div> { idle ? this.toggleControls() : null } </div>
             }
           />
         </div>
@@ -112,7 +122,7 @@ render () {
     }
 
     return (
-      <div className='player-wrapper'>
+      <div className='player-wrapper' style={ this.state.playing ? fadedin : fadedout } >
         <ReactPlayer
           ref={this.ref}
           className='react-player'
@@ -128,20 +138,23 @@ render () {
         />
         {/*<h1 onClick={this.playPause}>{this.state.playing ? 'Pause' : 'Play'}</h1>*/}
         {controls}
-        { this.state.playing === false &&
+        { this.state.played === 1 &&
           <Idle
             timeout={1}
             render={({ idle }) =>
-              <h1>
-                {idle
-                  ? this.props.onClick()
-                  : null
-                }
-              </h1>
+              <div>{ idle ? this.props.onClick() : null }</div>
             }
           />
         }
       </div>
     )
   }
+}
+
+const fadedin = {
+  animation: 'fademein 1s 1'
+}
+
+const fadedout = {
+  animation: 'fademeout 1s 1'
 }
