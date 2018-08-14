@@ -4,7 +4,7 @@ import Idle from 'react-idle'
 import Duration from './Duration'
 import Transitions from './VolumeTransition'
 import GoBack from './GoBack'
-import videoUrl from './AGM.mp4'
+import videoUrl from './Why.mp4'
 
 
 export default class Vid extends Component {

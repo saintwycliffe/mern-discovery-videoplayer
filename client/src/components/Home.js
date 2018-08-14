@@ -26,7 +26,7 @@ export default class Home extends Component {
     return(
       <div className="tests">
         <div className="center">
-          <h1 className="home-title">Title of Video</h1>
+          <h1 className="home-title">Why Bible Translation?</h1>
           <Transition visible={visible} animation='pulse' duration={200}>
             <Icon
               className="play circle icon play-circle"
