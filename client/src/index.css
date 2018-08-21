@@ -68,7 +68,7 @@ i.massive.icon, i.massive.icons {
   background-color: #82CFD0 !important;
 }
 
-.tests {
+.b-container {
   /* display: none; */
   /* width: 500px;
   height: 500px;
@@ -76,7 +76,8 @@ i.massive.icon, i.massive.icons {
   /* background-color: rgba(0,0,0,.8); */
   /* display: inline-block;
     position: relative; */
-  background: url(./components/why.png);
+  /* background: url(./components/why.png); */
+  background: linear-gradient(0deg,rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(./components/why.png);
   position: absolute;
   top: 0;
   left: 0;
@@ -84,7 +85,7 @@ i.massive.icon, i.massive.icons {
   height: 100%;
 }
 
-.tests > .center {
+.b-container > .center {
   position: absolute;
   top: 50%;
   left: 50%;
