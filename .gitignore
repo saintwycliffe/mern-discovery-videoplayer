@@ -58,4 +58,4 @@ typings/
 .env
 
 # Mp4 file
-client/src/components/Why.mp4
+# client/src/components/Why.mp4
