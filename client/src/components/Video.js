@@ -89,6 +89,7 @@ ref = player => { this.player = player }
 
 render () {
     const { playing, volume, played, duration } = this.state
+    let videoFrame = document.getElementsByTagName('video')[0];
     let controls = "";
     if (this.state.control) {
       controls = (
@@ -118,6 +119,11 @@ render () {
           />
         </div>
       )
+    }
+    if(videoFrame){
+      videoFrame.style.minWidth = "100vw";
+      videoFrame.style.minHeight = "100vh";
+      videoFrame.style.objectFit = "cover";
     }
 
     return (
