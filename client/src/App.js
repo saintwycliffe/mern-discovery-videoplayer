@@ -4,6 +4,7 @@ import './App.css';
 import Dimmerr from './components/Dimmer';
 import Vid from './components/Video';
 import Home from './components/Home';
+import 'semantic-ui-css/semantic.min.css';
 
 class App extends Component {
   constructor(props){

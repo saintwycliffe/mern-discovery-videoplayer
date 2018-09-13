@@ -261,8 +261,3 @@ i.icon.play.circle:before {
 i.icon.play.circle:active:before {
     text-shadow: 0px 0px 180px white, 0px 0px 180px white, 0px 0px 180px white !important;
 }
-/* Video Span */
-#root > div > div.player-wrapper > div > video {
-  height: 100vh !important;
-  width: 100vh;
-}
