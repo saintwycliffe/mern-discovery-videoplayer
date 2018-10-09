@@ -31,6 +31,9 @@ class App extends Component {
       <div className="App">
         <Home onClick={this.toggleMountVid} />
         {videoPlay}
+        {/*
+          - Dimmer overlay -
+          
         { this.state.dimReset === false &&
           <Idle
             timeout={30000}
@@ -44,6 +47,8 @@ class App extends Component {
             }
           />
         }
+
+        */}
       </div>
     );
   }
