@@ -118,14 +118,14 @@ h1 {
  .range-slider {
     -webkit-appearance: none;
     position: absolute;
-    bottom: 7.32%;
+    bottom: 9%;
     /* bottom: 10.32%; */
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     width: 60vw;
-    height: 30px;
+    height: 20px;
     border-radius: 24px;
     transition: background 450ms ease-in;
 }
@@ -151,7 +151,7 @@ h1 {
     margin-top: -20px;
     /* margin-top: -6px; */
     opacity: 1 !important;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 1);
 }
 
 .range-slider:focus {

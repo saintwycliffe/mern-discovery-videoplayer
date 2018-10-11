@@ -26,6 +26,7 @@ export default class GoBack extends Component {
         boxShadow: '0px 0px 50px #82CFD0',
         padding: 'none',
         fontSize: '160%',
+        fontFamily: '"Gotham SSm" !important',
       }
     }
   }

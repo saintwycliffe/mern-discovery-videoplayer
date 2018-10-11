@@ -112,11 +112,13 @@ render () {
           />
           <Duration className="time-remaining" seconds={duration * (1 - played)} />
           </span>
+          {/*
           <Idle
             timeout={3000} render= {
               ({ idle }) => <div> { idle ? this.toggleControls() : null } </div>
             }
           />
+          */}
         </div>
       )
     }
