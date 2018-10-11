@@ -2,10 +2,14 @@ import React from 'react'
 
 export default function Duration ({ className, seconds }) {
   return (
-    <time dateTime={`P${Math.round(seconds)}S`} className={className}>
+    <time dateTime={`P${Math.round(seconds)}S`} className={className} style={timeStyle}>
       {format(seconds)}
     </time>
   )
+}
+
+const timeStyle = {
+  fontFamily: '"Gotham SSm" !important',
 }
 
 function format (seconds) {
