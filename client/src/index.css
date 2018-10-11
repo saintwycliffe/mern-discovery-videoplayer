@@ -73,15 +73,7 @@ i.massive.icon, i.massive.icons {
 }
 
 .b-container {
-  /* display: none; */
-  /* width: 500px;
-  height: 500px;
-  margin: auto; */
-  /* background-color: rgba(0,0,0,.8); */
-  /* display: inline-block;
-    position: relative; */
-  /* background: url(./components/why.png); */
-  background: linear-gradient(0deg,rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(./components/why.png);
+  background: linear-gradient(0deg,rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('./components/background.png');
   position: absolute;
   top: 0;
   left: 0;

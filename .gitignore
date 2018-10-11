@@ -55,7 +55,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+# .env
 
 # Mp4 file
-# client/src/components/Why.mp4
+client/src/components/video.mp4
