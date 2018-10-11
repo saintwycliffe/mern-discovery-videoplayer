@@ -23,11 +23,10 @@ export default class Home extends Component {
 
   render(){
     const { visible } = this.state;
-
     return(
       <div className="b-container">
         <div className="center">
-          <h1 className="home-title">{process.env.REACT_APP_TITLE}</h1>
+          <h1 className="home-title">Why Bible Translation?</h1>
           <Transition visible={visible} animation='pulse' duration={200}>
             <Icon
               className="play circle icon play-circle"
