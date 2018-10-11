@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Idle from 'react-idle';
+/*import Idle from 'react-idle';*/
 import './App.css';
-import Dimmerr from './components/Dimmer';
+/*import Dimmerr from './components/Dimmer';*/
 import Vid from './components/Video';
 import Home from './components/Home';
 import 'semantic-ui-css/semantic.min.css';
@@ -33,7 +33,7 @@ class App extends Component {
         {videoPlay}
         {/*
           - Dimmer overlay -
-          
+
         { this.state.dimReset === false &&
           <Idle
             timeout={30000}
