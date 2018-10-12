@@ -1,0 +1,263 @@
+html {
+  cursor: none !important;
+}
+
+html:active {
+  cursor: none !important;
+}
+
+@font-face {
+  font-family: 'Gotham SSm A';
+  src: local('Gotham SSm'), local('Gotham'),
+    url(./fonts/GothamSSm-Book.otf) format('otf');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Gotham SSm", Verdana, sans-serif !important;
+  background: #82CFD0 !important;
+  background-repeat:no-repeat;
+  background-size:cover;
+  overflow-y: hidden;
+}
+
+h1, h2, h3, p {
+  font-family: "Gotham SSm", Verdana, sans-serif !important;
+  color: black !important;
+}
+
+h1 {
+  font-size: 5rem !important;
+}
+
+i.massive.icon, i.massive.icons {
+  font-size: 11em !important;
+}
+
+.player-wrapper {
+  /* animation: fademein .5s 1; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.player-wrapper > h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.react-wrapper {
+  height: 100vh;
+}
+
+.ui.inverted.header {
+    color: white;
+    font-weight: bold;
+}
+
+.ui.inverted.header .sub.header {
+  font-size: 3em !important;
+  color: white !important;
+  animation: fadeIn 4s;
+  padding: 11%;
+  height: 560px;
+}
+
+.ui.dimmer {
+  background-color: #82CFD0 !important;
+}
+
+.b-container {
+  background: linear-gradient(0deg,rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('./components/background.png');
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.b-container > .center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  text-align: center;
+  color: #AA2D29;
+  margin-bottom: 10px;
+}
+
+.touch-continue {
+  color: #FFC600 !important;
+}
+
+/* Animation */
+@keyframes fademein {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fademeout {
+  0% { opacity: 1; }
+  100%   { opacity: 0; }
+}
+
+/* Controls */
+.the-controls {
+  animation: fademein 1.1s 1;
+}
+
+ /* Slider  */
+ .range-slider {
+    -webkit-appearance: none;
+    position: absolute;
+    bottom: 9%;
+    /* bottom: 10.32%; */
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 20px;
+    border-radius: 24px;
+    transition: background 450ms ease-in;
+}
+
+#myinput {
+  /* background: linear-gradient(to right, #82CFD0 0%, #82CFD0 50%, #fff 50%, #fff 100%) !important; */
+}
+
+.range-slider::-webkit-slider-runnable-track {
+    width: 60vw !important;
+    height: 8px !important;
+    /* background: rgba(221,221,221,0.8) !important; */
+    border: none;
+    border-radius: 5px;
+}
+
+.range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: white;
+    margin-top: -20px;
+    /* margin-top: -6px; */
+    opacity: 1 !important;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 1);
+}
+
+.range-slider:focus {
+    outline: none;
+    /* box-shadow: 0px 0px 20px #82CFD0; */
+}
+/* ::-webkit-progress-value {
+  background-color: orange !important;
+} */
+
+/* Slider End */
+/* Time Stamps */
+.time-passed {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  color: white;
+  font-size: 3em;
+}
+
+.time-remaining {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  color: white;
+  font-size: 3em;
+}
+/* Time Stamps End */
+
+/* Volume */
+
+.volume-controllers {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.volume-up {
+  color: white !important;
+  padding-left: 15px;
+}
+
+.volume-down {
+  color: white !important;
+  padding-right: 15px;
+}
+
+/* Exit Button */
+
+.exit-button {
+  font-family: "Gotham SSm" !important;
+  font-weight: 250 !important;
+  position: absolute;
+  top: 10%;
+  left: 15%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: white !important;
+  background-color: rgba(111,111,111) !important;
+}
+
+/* Language Button */
+.language-button {
+  font-family: "Gotham SSm" !important;
+  font-weight: 250 !important;
+  color: white !important;
+  background-color: #E64C38 !important;
+}
+
+.language-button:hover {
+  background-color: #c1301b !important;
+}
+
+.language-button:active {
+  opacity: 0.6;
+  /* transform: translateY(4px); */
+  transform: scale(.9);
+}
+
+/* Home Text  */
+.center h1, h2 {
+  color: white !important;
+}
+
+.home-title {
+  margin-bottom: 10%;
+  margin-top: -20% !important;
+}
+
+.home-subtitle {
+  margin-bottom: 5%;
+}
+
+.circle {
+  color: #82CFD0 !important;
+  background: radial-gradient(white 50%, rgba(0, 0, 0, 0) 45%) !important;
+}
+
+i.icon.play.circle:before {
+    text-shadow: 0px 0px 180px white !important;
+}
+
+i.icon.play.circle:active:before {
+    text-shadow: 0px 0px 180px white, 0px 0px 180px white, 0px 0px 180px white !important;
+}
