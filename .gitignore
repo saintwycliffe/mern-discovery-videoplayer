@@ -59,3 +59,6 @@ typings/
 
 # Mp4 file
 client/src/components/video.mp4
+
+# build folder
+client/build/*
