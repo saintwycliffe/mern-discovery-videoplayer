@@ -74,7 +74,6 @@ i.massive.icon, i.massive.icons {
 
 .b-container {
   background: linear-gradient(0deg,rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('./components/background.png');
-  background-size:cover;
   position: absolute;
   top: 0;
   left: 0;
